@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GuitarShop.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="GuitarShopStoreContainer">
+          <EntitySet Name="AcousticGuitars" EntityType="GuitarShop.Store.AcousticGuitars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Amplifiers" EntityType="GuitarShop.Store.Amplifiers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ClassicalGuitars" EntityType="GuitarShop.Store.ClassicalGuitars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contacts" EntityType="GuitarShop.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ElectricGuitars" EntityType="GuitarShop.Store.ElectricGuitars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GuitarShops" EntityType="GuitarShop.Store.GuitarShops" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pickups" EntityType="GuitarShop.Store.Pickups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Strings" EntityType="GuitarShop.Store.Strings" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__AcousticG__Guita__145C0A3F" Association="GuitarShop.Store.FK__AcousticG__Guita__145C0A3F">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="AcousticGuitars" EntitySet="AcousticGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Amplifier__Guita__22AA2996" Association="GuitarShop.Store.FK__Amplifier__Guita__22AA2996">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Amplifiers" EntitySet="Amplifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Classical__Guita__1BFD2C07" Association="GuitarShop.Store.FK__Classical__Guita__1BFD2C07">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="ClassicalGuitars" EntitySet="ClassicalGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contacts__guitar__31EC6D26" Association="GuitarShop.Store.FK__Contacts__guitar__31EC6D26">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ElectricG__Guita__0519C6AF" Association="GuitarShop.Store.FK__ElectricG__Guita__0519C6AF">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="ElectricGuitars" EntitySet="ElectricGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pickups__guitarI__0EA330E9" Association="GuitarShop.Store.FK__Pickups__guitarI__0EA330E9">
+            <End Role="ElectricGuitars" EntitySet="ElectricGuitars" />
+            <End Role="Pickups" EntitySet="Pickups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Strings__GuitarS__2A4B4B5E" Association="GuitarShop.Store.FK__Strings__GuitarS__2A4B4B5E">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Strings" EntitySet="Strings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AcousticGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="int" />
+          <Property Name="electro_acoustic" Type="varchar" MaxLength="3" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="model" Type="varchar" MaxLength="20" />
+          <Property Name="price_value" Type="float" />
+          <Property Name="price_currency" Type="char" MaxLength="3" />
+          <Property Name="body" Type="varchar" MaxLength="11" />
+          <Property Name="number_strings" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Amplifiers">
+          <Key>
+            <PropertyRef Name="ampID" />
+          </Key>
+          <Property Name="ampID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="model" Type="varchar" MaxLength="20" />
+          <Property Name="price_value" Type="float" />
+          <Property Name="price_currency" Type="char" MaxLength="3" />
+          <Property Name="power" Type="float" />
+          <Property Name="power_unit" Type="varchar" MaxLength="4" />
+          <Property Name="amplifier_type" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="ClassicalGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="model" Type="varchar" MaxLength="20" />
+          <Property Name="price_value" Type="float" />
+          <Property Name="price_currency" Type="char" MaxLength="3" />
+          <Property Name="electro_acoustic" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="contactsID" />
+          </Key>
+          <Property Name="guitar_shopID" Type="int" />
+          <Property Name="contactsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adress" Type="varchar" MaxLength="256" />
+          <Property Name="phone" Type="char" MaxLength="12" />
+          <Property Name="email" Type="varchar" MaxLength="32" />
+          <Property Name="website" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ElectricGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="model" Type="varchar" MaxLength="20" />
+          <Property Name="number_strings" Type="tinyint" />
+          <Property Name="number_frets" Type="tinyint" />
+          <Property Name="price_value" Type="float" />
+          <Property Name="price_currency" Type="char" MaxLength="3" />
+          <Property Name="body" Type="varchar" MaxLength="15" />
+          <Property Name="pickguard" Type="varchar" MaxLength="256" />
+          <Property Name="tremolo" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="GuitarShops">
+          <Key>
+            <PropertyRef Name="GuitarShopID" />
+          </Key>
+          <Property Name="GuitarShopID" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Pickups">
+          <Key>
+            <PropertyRef Name="pickupID" />
+          </Key>
+          <Property Name="guitarID" Type="int" />
+          <Property Name="pickupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pickup_type" Type="varchar" MaxLength="13" />
+          <Property Name="pickup_position" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="Strings">
+          <Key>
+            <PropertyRef Name="stringsID" />
+          </Key>
+          <Property Name="stringsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="400" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" />
+          <Property Name="price_value" Type="float" />
+          <Property Name="price_currency" Type="char" MaxLength="3" />
+          <Property Name="gauge" Type="float" />
+          <Property Name="strings_type" Type="varchar" MaxLength="24" />
+        </EntityType>
+        <Association Name="FK__AcousticG__Guita__145C0A3F">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="AcousticGuitars" Type="GuitarShop.Store.AcousticGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="AcousticGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Amplifier__Guita__22AA2996">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="Amplifiers" Type="GuitarShop.Store.Amplifiers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Amplifiers">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Classical__Guita__1BFD2C07">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="ClassicalGuitars" Type="GuitarShop.Store.ClassicalGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="ClassicalGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contacts__guitar__31EC6D26">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="Contacts" Type="GuitarShop.Store.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="guitar_shopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ElectricG__Guita__0519C6AF">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="ElectricGuitars" Type="GuitarShop.Store.ElectricGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="ElectricGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pickups__guitarI__0EA330E9">
+          <End Role="ElectricGuitars" Type="GuitarShop.Store.ElectricGuitars" Multiplicity="0..1" />
+          <End Role="Pickups" Type="GuitarShop.Store.Pickups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElectricGuitars">
+              <PropertyRef Name="guitarID" />
+            </Principal>
+            <Dependent Role="Pickups">
+              <PropertyRef Name="guitarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Strings__GuitarS__2A4B4B5E">
+          <End Role="GuitarShops" Type="GuitarShop.Store.GuitarShops" Multiplicity="0..1" />
+          <End Role="Strings" Type="GuitarShop.Store.Strings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Strings">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GuitarShop" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GuitarShopEntities6" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AcousticGuitars" EntityType="GuitarShop.AcousticGuitars" />
+          <EntitySet Name="Amplifiers" EntityType="GuitarShop.Amplifiers" />
+          <EntitySet Name="ClassicalGuitars" EntityType="GuitarShop.ClassicalGuitars" />
+          <EntitySet Name="Contacts" EntityType="GuitarShop.Contacts" />
+          <EntitySet Name="ElectricGuitars" EntityType="GuitarShop.ElectricGuitars" />
+          <EntitySet Name="GuitarShops" EntityType="GuitarShop.GuitarShops" />
+          <EntitySet Name="Pickups" EntityType="GuitarShop.Pickups" />
+          <EntitySet Name="Strings" EntityType="GuitarShop.Strings" />
+          <AssociationSet Name="FK__AcousticG__Guita__145C0A3F" Association="GuitarShop.FK__AcousticG__Guita__145C0A3F">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="AcousticGuitars" EntitySet="AcousticGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Amplifier__Guita__22AA2996" Association="GuitarShop.FK__Amplifier__Guita__22AA2996">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Amplifiers" EntitySet="Amplifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Classical__Guita__1BFD2C07" Association="GuitarShop.FK__Classical__Guita__1BFD2C07">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="ClassicalGuitars" EntitySet="ClassicalGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contacts__guitar__31EC6D26" Association="GuitarShop.FK__Contacts__guitar__31EC6D26">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ElectricG__Guita__0519C6AF" Association="GuitarShop.FK__ElectricG__Guita__0519C6AF">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="ElectricGuitars" EntitySet="ElectricGuitars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pickups__guitarI__0EA330E9" Association="GuitarShop.FK__Pickups__guitarI__0EA330E9">
+            <End Role="ElectricGuitars" EntitySet="ElectricGuitars" />
+            <End Role="Pickups" EntitySet="Pickups" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Strings__GuitarS__2A4B4B5E" Association="GuitarShop.FK__Strings__GuitarS__2A4B4B5E">
+            <End Role="GuitarShops" EntitySet="GuitarShops" />
+            <End Role="Strings" EntitySet="Strings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AcousticGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="Int32" />
+          <Property Name="electro_acoustic" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="price_value" Type="Double" />
+          <Property Name="price_currency" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="body" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="number_strings" Type="Byte" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__AcousticG__Guita__145C0A3F" FromRole="AcousticGuitars" ToRole="GuitarShops" />
+        </EntityType>
+        <EntityType Name="Amplifiers">
+          <Key>
+            <PropertyRef Name="ampID" />
+          </Key>
+          <Property Name="ampID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="price_value" Type="Double" />
+          <Property Name="price_currency" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="power" Type="Double" />
+          <Property Name="power_unit" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="amplifier_type" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__Amplifier__Guita__22AA2996" FromRole="Amplifiers" ToRole="GuitarShops" />
+        </EntityType>
+        <EntityType Name="ClassicalGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="price_value" Type="Double" />
+          <Property Name="price_currency" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="electro_acoustic" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__Classical__Guita__1BFD2C07" FromRole="ClassicalGuitars" ToRole="GuitarShops" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="contactsID" />
+          </Key>
+          <Property Name="guitar_shopID" Type="Int32" />
+          <Property Name="contactsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="adress" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+          <Property Name="email" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="website" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__Contacts__guitar__31EC6D26" FromRole="Contacts" ToRole="GuitarShops" />
+        </EntityType>
+        <EntityType Name="ElectricGuitars">
+          <Key>
+            <PropertyRef Name="guitarID" />
+          </Key>
+          <Property Name="guitarID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="number_strings" Type="Byte" />
+          <Property Name="number_frets" Type="Byte" />
+          <Property Name="price_value" Type="Double" />
+          <Property Name="price_currency" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="body" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="pickguard" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="tremolo" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__ElectricG__Guita__0519C6AF" FromRole="ElectricGuitars" ToRole="GuitarShops" />
+          <NavigationProperty Name="Pickups" Relationship="GuitarShop.FK__Pickups__guitarI__0EA330E9" FromRole="ElectricGuitars" ToRole="Pickups" />
+        </EntityType>
+        <EntityType Name="GuitarShops">
+          <Key>
+            <PropertyRef Name="GuitarShopID" />
+          </Key>
+          <Property Name="GuitarShopID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AcousticGuitars" Relationship="GuitarShop.FK__AcousticG__Guita__145C0A3F" FromRole="GuitarShops" ToRole="AcousticGuitars" />
+          <NavigationProperty Name="Amplifiers" Relationship="GuitarShop.FK__Amplifier__Guita__22AA2996" FromRole="GuitarShops" ToRole="Amplifiers" />
+          <NavigationProperty Name="ClassicalGuitars" Relationship="GuitarShop.FK__Classical__Guita__1BFD2C07" FromRole="GuitarShops" ToRole="ClassicalGuitars" />
+          <NavigationProperty Name="Contacts" Relationship="GuitarShop.FK__Contacts__guitar__31EC6D26" FromRole="GuitarShops" ToRole="Contacts" />
+          <NavigationProperty Name="ElectricGuitars" Relationship="GuitarShop.FK__ElectricG__Guita__0519C6AF" FromRole="GuitarShops" ToRole="ElectricGuitars" />
+          <NavigationProperty Name="Strings" Relationship="GuitarShop.FK__Strings__GuitarS__2A4B4B5E" FromRole="GuitarShops" ToRole="Strings" />
+        </EntityType>
+        <EntityType Name="Pickups">
+          <Key>
+            <PropertyRef Name="pickupID" />
+          </Key>
+          <Property Name="guitarID" Type="Int32" />
+          <Property Name="pickupID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="pickup_type" Type="String" MaxLength="13" Unicode="false" FixedLength="false" />
+          <Property Name="pickup_position" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ElectricGuitar" Relationship="GuitarShop.FK__Pickups__guitarI__0EA330E9" FromRole="Pickups" ToRole="ElectricGuitars" />
+        </EntityType>
+        <EntityType Name="Strings">
+          <Key>
+            <PropertyRef Name="stringsID" />
+          </Key>
+          <Property Name="stringsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GuitarShopID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="price_value" Type="Double" />
+          <Property Name="price_currency" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="gauge" Type="Double" />
+          <Property Name="strings_type" Type="String" MaxLength="24" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GuitarShop" Relationship="GuitarShop.FK__Strings__GuitarS__2A4B4B5E" FromRole="Strings" ToRole="GuitarShops" />
+        </EntityType>
+        <Association Name="FK__AcousticG__Guita__145C0A3F">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="AcousticGuitars" Type="GuitarShop.AcousticGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="AcousticGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Amplifier__Guita__22AA2996">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="Amplifiers" Type="GuitarShop.Amplifiers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Amplifiers">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Classical__Guita__1BFD2C07">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="ClassicalGuitars" Type="GuitarShop.ClassicalGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="ClassicalGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contacts__guitar__31EC6D26">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="Contacts" Type="GuitarShop.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="guitar_shopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ElectricG__Guita__0519C6AF">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="ElectricGuitars" Type="GuitarShop.ElectricGuitars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="ElectricGuitars">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pickups__guitarI__0EA330E9">
+          <End Role="ElectricGuitars" Type="GuitarShop.ElectricGuitars" Multiplicity="0..1" />
+          <End Role="Pickups" Type="GuitarShop.Pickups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ElectricGuitars">
+              <PropertyRef Name="guitarID" />
+            </Principal>
+            <Dependent Role="Pickups">
+              <PropertyRef Name="guitarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Strings__GuitarS__2A4B4B5E">
+          <End Role="GuitarShops" Type="GuitarShop.GuitarShops" Multiplicity="0..1" />
+          <End Role="Strings" Type="GuitarShop.Strings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GuitarShops">
+              <PropertyRef Name="GuitarShopID" />
+            </Principal>
+            <Dependent Role="Strings">
+              <PropertyRef Name="GuitarShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GuitarShopStoreContainer" CdmEntityContainer="GuitarShopEntities6">
+          <EntitySetMapping Name="AcousticGuitars">
+            <EntityTypeMapping TypeName="GuitarShop.AcousticGuitars">
+              <MappingFragment StoreEntitySet="AcousticGuitars">
+                <ScalarProperty Name="guitarID" ColumnName="guitarID" />
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="electro_acoustic" ColumnName="electro_acoustic" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="price_value" ColumnName="price_value" />
+                <ScalarProperty Name="price_currency" ColumnName="price_currency" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="number_strings" ColumnName="number_strings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Amplifiers">
+            <EntityTypeMapping TypeName="GuitarShop.Amplifiers">
+              <MappingFragment StoreEntitySet="Amplifiers">
+                <ScalarProperty Name="ampID" ColumnName="ampID" />
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="price_value" ColumnName="price_value" />
+                <ScalarProperty Name="price_currency" ColumnName="price_currency" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="power_unit" ColumnName="power_unit" />
+                <ScalarProperty Name="amplifier_type" ColumnName="amplifier_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassicalGuitars">
+            <EntityTypeMapping TypeName="GuitarShop.ClassicalGuitars">
+              <MappingFragment StoreEntitySet="ClassicalGuitars">
+                <ScalarProperty Name="guitarID" ColumnName="guitarID" />
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="price_value" ColumnName="price_value" />
+                <ScalarProperty Name="price_currency" ColumnName="price_currency" />
+                <ScalarProperty Name="electro_acoustic" ColumnName="electro_acoustic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="GuitarShop.Contacts">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="guitar_shopID" ColumnName="guitar_shopID" />
+                <ScalarProperty Name="contactsID" ColumnName="contactsID" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElectricGuitars">
+            <EntityTypeMapping TypeName="GuitarShop.ElectricGuitars">
+              <MappingFragment StoreEntitySet="ElectricGuitars">
+                <ScalarProperty Name="guitarID" ColumnName="guitarID" />
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="number_strings" ColumnName="number_strings" />
+                <ScalarProperty Name="number_frets" ColumnName="number_frets" />
+                <ScalarProperty Name="price_value" ColumnName="price_value" />
+                <ScalarProperty Name="price_currency" ColumnName="price_currency" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="pickguard" ColumnName="pickguard" />
+                <ScalarProperty Name="tremolo" ColumnName="tremolo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuitarShops">
+            <EntityTypeMapping TypeName="GuitarShop.GuitarShops">
+              <MappingFragment StoreEntitySet="GuitarShops">
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pickups">
+            <EntityTypeMapping TypeName="GuitarShop.Pickups">
+              <MappingFragment StoreEntitySet="Pickups">
+                <ScalarProperty Name="guitarID" ColumnName="guitarID" />
+                <ScalarProperty Name="pickupID" ColumnName="pickupID" />
+                <ScalarProperty Name="pickup_type" ColumnName="pickup_type" />
+                <ScalarProperty Name="pickup_position" ColumnName="pickup_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Strings">
+            <EntityTypeMapping TypeName="GuitarShop.Strings">
+              <MappingFragment StoreEntitySet="Strings">
+                <ScalarProperty Name="stringsID" ColumnName="stringsID" />
+                <ScalarProperty Name="GuitarShopID" ColumnName="GuitarShopID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="price_value" ColumnName="price_value" />
+                <ScalarProperty Name="price_currency" ColumnName="price_currency" />
+                <ScalarProperty Name="gauge" ColumnName="gauge" />
+                <ScalarProperty Name="strings_type" ColumnName="strings_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
