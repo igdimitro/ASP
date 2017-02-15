@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guitar_shop SYSTEM "file:/C:\Users\lenovo\Documents\Visual Studio 2012\Projects\GuitarShop\GuitarShop\App_Data\kitari.dtd">
+<guitar_shop  GuitarShopID="GS14" name="Музикален център Петров">
+    <contacts>
+        <adress>Благоевград, ул. "3-ти март" №15</adress>
+        <phone>0899132625</phone>
+        <email>sales@mcp-bg.com</email>
+        <website>mcp-bg.com</website>
+    </contacts>
+    <guitars>
+        <guitar>
+            <acoustic_guitar electro-acoustic="No">
+                <classical_guitar manufacturer="Storm" model="CG400 PK">
+                    <price value="75" currency="USD"/>
+                    <description>
+                        Класическа китара 4/4 размер(стандартен). Розов цвят.
+                    </description>
+                </classical_guitar>
+            </acoustic_guitar>
+        </guitar>
+        <guitar>
+            <acoustic_guitar electro-acoustic="No">
+                <steel-stringed num_strings="6" manufacturer="Ibanez" model="V72-BK72">
+                    <price value="363" currency="EUR"/>
+                    <body_type body="Jumbo"/>
+                    <description>Махагонови тяло и гриф</description>
+                </steel-stringed>
+            </acoustic_guitar>
+        </guitar>
+        <guitar>
+            <electric_guitar manufacturer="DEAN" model="EVO XM - Black" num_strings="6" num_frets="22">
+                <description>Няма</description>
+                <price value="720" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Stratocaster"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+    </guitars>
+    <amplifiers>
+        <amplifier manufacturer="Ibanez" model="TSA15-U" type="hybrid">
+            <price value="773" currency="BGN"/>
+            <description>Няма</description>
+            <power value="25" unit="Watt"/>
+        </amplifier>
+    </amplifiers>
+    <strings></strings>
+</guitar_shop>

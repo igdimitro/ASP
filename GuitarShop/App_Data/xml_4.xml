@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guitar_shop SYSTEM "file:/C:\Users\lenovo\Documents\Visual Studio 2012\Projects\GuitarShop\GuitarShop\App_Data\kitari.dtd">
+<guitar_shop  GuitarShopID="GS4" name="музикален център">
+    <contacts>
+        <adress>Благоевград, ул. "Трети март" №15</adress>
+        <phone>0899251326</phone>
+        <email>sales@mci-bg.com</email>
+        <website>mci-bg.com</website>
+    </contacts>
+    <guitars>
+        <guitar>
+            <electric_guitar manufacturer="Yamaha" model="Pacifica 120SJ" num_strings="6" num_frets="22">
+                <description>Този тип електрически китари често се свързват с адаптери с една намотка, но към този модел
+                    Ямаха добавят още звукова мощ чрез два двунамоткови адаптера плюс добавеното разнообразие от тристепенния
+                    ключ, който дава отличен звънтящ звук в средната позиция.
+                </description>               
+                <price value="400" currency="USD"/>
+                <body>
+                    <solid_body body_type="Telecaster"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>                        
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <acoustic_guitar electro-acoustic="No">
+                <classical_guitar manufacturer="Storm" model="CG400 PK">
+                    <price value="125" currency="BGN"/>
+                    <description>
+                        Класическа китара 4/4 размер(стандартен). Розов цвят.
+                    </description>
+                </classical_guitar>
+            </acoustic_guitar>
+        </guitar>
+        <guitar>
+            <acoustic_guitar electro-acoustic="Yes">
+                <steel-stringed num_strings="6" manufacturer="Ibanez" model="V72ECE-BK">
+                    <price value="363" currency="BGN"/>
+                    <body_type body="Double-oh"/>
+                    <description>Махагонови тяло и гриф</description>
+                </steel-stringed>
+            </acoustic_guitar>
+        </guitar>
+        <guitar>
+            <electric_guitar manufacturer="DEAN" model="EVO XM - Black" num_strings="6" num_frets="22">
+                <description>Няма</description>
+                <price value="320" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Les_Paul"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+    </guitars>
+    <amplifiers>
+        <amplifier manufacturer="Ibanez" model="TSA15-U" type="vacuum_tube">
+            <price value="773" currency="BGN"/>
+            <description>Няма</description>
+            <power value="15" unit="Watt"/>
+        </amplifier>
+    </amplifiers>
+    <strings></strings>
+</guitar_shop>

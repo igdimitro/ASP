@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="guitar_shop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contacts"/>
+        <xs:element ref="guitars"/>
+        <xs:element ref="amplifiers"/>
+        <xs:element maxOccurs="unbounded" ref="strings"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.guitar_shop"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.guitar_shop">
+    <xs:attribute name="GuitarShopID" use="required" type="xs:ID"/>
+    <xs:attribute name="name" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="contacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="adress"/>
+        <xs:element ref="phone"/>
+        <xs:element ref="email"/>
+        <xs:element ref="website"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adress" type="xs:string"/>
+  <xs:element name="phone" type="xs:string"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="website" type="xs:string"/>
+  <xs:element name="guitars">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="guitar"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="guitar">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="acoustic_guitar"/>
+        <xs:element ref="electric_guitar"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="electric_guitar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="price"/>
+        <xs:element ref="body"/>
+        <xs:element ref="pickups"/>
+        <xs:element minOccurs="0" ref="pickguard"/>
+        <xs:element minOccurs="0" ref="tremolo_bar"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.electric_guitar"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.electric_guitar">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="model" use="required"/>
+    <xs:attribute name="num_strings" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="6"/>
+          <xs:enumeration value="7"/>
+          <xs:enumeration value="8"/>
+          <xs:enumeration value="9"/>
+          <xs:enumeration value="10"/>
+          <xs:enumeration value="12"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="num_frets" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="21"/>
+          <xs:enumeration value="22"/>
+          <xs:enumeration value="24"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="price">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.price"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.price">
+    <xs:attribute name="value" use="required" type="xs:NMTOKEN"/>
+    <xs:attribute name="currency" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="BGN"/>
+          <xs:enumeration value="EUR"/>
+          <xs:enumeration value="USD"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="body">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="solid_body"/>
+        <xs:element ref="hollow_body"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="solid_body">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.solid_body"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.solid_body">
+    <xs:attribute name="body_type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Telecaster"/>
+          <xs:enumeration value="Stratocaster"/>
+          <xs:enumeration value="SG"/>
+          <xs:enumeration value="Les_Paul"/>
+          <xs:enumeration value="Jazzmaster"/>
+          <xs:enumeration value="Explorer"/>
+          <xs:enumeration value="Flying_V"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="hollow_body">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.hollow_body"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.hollow_body">
+    <xs:attribute name="body_type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Fully_Hollow"/>
+          <xs:enumeration value="Thinline_Hollow"/>
+          <xs:enumeration value="Semi_Hollow"/>
+          <xs:enumeration value="Other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="pickups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="pickup"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pickup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="pickup_type"/>
+        <xs:element ref="position"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pickup_type">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="magnetic"/>
+        <xs:element ref="piezoelectric"/>
+        <xs:element ref="optical"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="magnetic">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.magnetic"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.magnetic">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="single-coil"/>
+          <xs:enumeration value="humbucker"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="piezoelectric">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="optical">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="position">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.position"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.position">
+    <xs:attribute name="pos" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="bridge"/>
+          <xs:enumeration value="middle"/>
+          <xs:enumeration value="neck"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="pickguard" type="xs:string"/>
+  <xs:element name="tremolo_bar" type="xs:string"/>
+  <xs:element name="acoustic_guitar">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="classical_guitar"/>
+        <xs:element ref="steel-stringed"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.acoustic_guitar"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.acoustic_guitar">
+    <xs:attribute name="electro-acoustic" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Yes"/>
+          <xs:enumeration value="No"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="classical_guitar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.classical_guitar"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.classical_guitar">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="model" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="steel-stringed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="body_type"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.steel-stringed"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.steel-stringed">
+    <xs:attribute name="num_strings" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="6"/>
+          <xs:enumeration value="12"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="model" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="body_type">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.body_type"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.body_type">
+    <xs:attribute name="body" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Double-oh"/>
+          <xs:enumeration value="Triple-oh"/>
+          <xs:enumeration value="Dreadnought"/>
+          <xs:enumeration value="Jumbo"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="amplifiers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="amplifier"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="amplifier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="description"/>
+        <xs:element ref="power"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.amplifier"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.amplifier">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="model" use="required"/>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="vacuum_tube"/>
+          <xs:enumeration value="solid-state"/>
+          <xs:enumeration value="hybrid"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="power">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.power"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.power">
+    <xs:attribute name="value" use="required" type="xs:NMTOKEN"/>
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Watt"/>
+          <xs:enumeration value="kW"/>
+          <xs:enumeration value="MW"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="strings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="acoustic_guitar_strings"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="electric_guitar_strings"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="classical_guitar_strings"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="acoustic_guitar_strings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.acoustic_guitar_strings"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.acoustic_guitar_strings">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="gauge" use="required" type="xs:NMTOKEN"/>
+  </xs:attributeGroup>
+  <xs:element name="electric_guitar_strings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.electric_guitar_strings"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.electric_guitar_strings">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="gauge" use="required" type="xs:NMTOKEN"/>
+  </xs:attributeGroup>
+  <xs:element name="classical_guitar_strings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="price"/>
+        <xs:element ref="description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.classical_guitar_strings"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.classical_guitar_strings">
+    <xs:attribute name="manufacturer" use="required"/>
+    <xs:attribute name="gauge" use="required" type="xs:NMTOKEN"/>
+  </xs:attributeGroup>
+</xs:schema>

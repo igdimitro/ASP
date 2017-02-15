@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guitar_shop SYSTEM "file:/C:\Users\lenovo\Documents\Visual Studio 2012\Projects\GuitarShop\GuitarShop\App_Data\kitari.dtd">
+<guitar_shop GuitarShopID="GS1" name="Музикална къща камертон">
+    <contacts>
+        <phone>0879234460</phone>
+        <email>camerton99@abv.bg</email>
+        <website>camerton99.com</website>
+    </contacts>
+    <guitars>
+        <guitar>
+            <electric_guitar manufacturer="Yamaha" model="Pacifica 120SJ" num_strings="6" num_frets="22">
+                <description>Този тип електрически китари често се свързват с адаптери с една намотка, но към този модел
+                 Ямаха добавят още звукова мощ чрез два двунамоткови адаптера плюс добавеното разнообразие от тристепенния
+                 ключ, който дава отличен звънтящ звук в средната позиция.
+                </description>               
+                <price value="400" currency="USD"/>
+                <body>
+                    <solid_body body_type="Telecaster"/>
+                </body>
+                <pickups>
+          <!--          <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>                        
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup> -->
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <electric_guitar manufacturer="Fender" model="Road Worn Player Stratocaster" num_strings="6" num_frets="21">
+                <description>Няма</description>
+                <price value="1330" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Stratocaster"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                             <magnetic type="single-coil"/>
+                        </pickup_type>
+                        <position pos="middle"/>                        
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="single-coil"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="single-coil"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <acoustic_guitar electro-acoustic="Yes">
+                <steel-stringed num_strings="6" manufacturer="Ibanez" model="V72ECE-BK">
+                    <price value="360" currency="BGN"/>
+                    <body_type body="Double-oh"/>
+                    <description>електро-акустична китара</description>
+                </steel-stringed>
+            </acoustic_guitar>
+        </guitar>
+    </guitars>
+    <amplifiers>
+            <amplifier manufacturer="Ibanez" model="IBZ15GR" type="hybrid">
+            <price value="350" currency="BGN"/>
+            <description>Няма</description>
+            <power value="15" unit="Watt"/>
+        </amplifier>
+        <amplifier manufacturer="Marshall" model="DSL40C" type="vacuum_tube">
+            <price value="699.99" currency="USD"/>
+            <description>
+                Лампов усилвател
+            </description>
+            <power value="40" unit="Watt"/>
+        </amplifier>
+    </amplifiers>    
+    <strings>
+        <acoustic_guitar_strings manufacturer="Fender" gauge="0.11">
+            <price value="15" currency="BGN"/>
+            <description>
+                Внимателната изработка и най-добрите материали ви гарантират добро усещане
+                и страхотен звук, комплект след комплект.
+            </description>
+        </acoustic_guitar_strings>
+        <electric_guitar_strings manufacturer="Dunlop" gauge="0.10">
+            <price value="11.39" currency="BGN"/>
+            <description>
+                струни
+            </description>
+        </electric_guitar_strings>
+    </strings>
+</guitar_shop>

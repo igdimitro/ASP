@@ -1,0 +1,67 @@
+<!ELEMENT guitar_shop (contacts, guitars+, amplifiers+, strings+)>
+<!ATTLIST guitar_shop GuitarShopID ID #REQUIRED >
+<!ATTLIST guitar_shop name CDATA #REQUIRED >
+
+    <!ELEMENT contacts (adress?, phone, email, website)>
+        <!ELEMENT adress (#PCDATA)>
+        <!ELEMENT phone (#PCDATA)>
+        <!ELEMENT email (#PCDATA)>
+        <!ELEMENT website (#PCDATA)>
+    <!ELEMENT guitars (guitar+)>    
+        <!ELEMENT guitar (acoustic_guitar | electric_guitar)>        
+            <!ELEMENT electric_guitar (description, price, body, pickups, pickguard?, tremolo_bar?)>
+             <!ATTLIST electric_guitar manufacturer CDATA #REQUIRED>
+             <!ATTLIST electric_guitar model CDATA #REQUIRED>
+             <!ATTLIST electric_guitar num_strings (6 | 7 | 8 | 9 | 10 | 12) #REQUIRED>
+             <!ATTLIST electric_guitar num_frets (21 | 22 | 24) #REQUIRED>
+             <!ELEMENT description (#PCDATA)>
+             <!ELEMENT price EMPTY>
+                <!ATTLIST price value NMTOKEN #REQUIRED>
+                <!ATTLIST price currency (BGN | EUR | USD) #REQUIRED>
+                <!ELEMENT body (solid_body | hollow_body)>            
+                    <!ELEMENT solid_body EMPTY>
+                        <!ATTLIST solid_body body_type (Telecaster | Stratocaster | SG | Les_Paul | Jazzmaster | Explorer | Flying_V) #REQUIRED>
+                    <!ELEMENT hollow_body EMPTY>
+                        <!ATTLIST hollow_body body_type (Fully_Hollow | Thinline_Hollow | Semi_Hollow | Other) #REQUIRED>
+                <!ELEMENT pickups (pickup+)>                
+                    <!ELEMENT pickup (pickup_type, position)>
+                        <!ELEMENT pickup_type (magnetic | piezoelectric | optical) >
+                            <!ELEMENT magnetic EMPTY>
+                                <!ATTLIST magnetic type (single-coil | humbucker) #REQUIRED>
+                            <!ELEMENT piezoelectric EMPTY>
+                            <!ELEMENT optical EMPTY>
+                        <!ELEMENT position EMPTY>
+                            <!ATTLIST position pos (bridge | middle | neck) #REQUIRED>
+                <!ELEMENT pickguard (#PCDATA)>
+                <!ELEMENT tremolo_bar (#PCDATA)>
+            <!ELEMENT acoustic_guitar (classical_guitar | steel-stringed)>
+            <!ATTLIST acoustic_guitar electro-acoustic (Yes | No) #REQUIRED>
+                <!ELEMENT classical_guitar (price, description)>
+                    <!ATTLIST classical_guitar manufacturer CDATA #REQUIRED>
+                    <!ATTLIST classical_guitar model CDATA #REQUIRED>
+                <!ELEMENT steel-stringed (price, body_type, description)>
+                    <!ATTLIST steel-stringed num_strings (6 | 12) #REQUIRED>
+                    <!ATTLIST steel-stringed manufacturer CDATA #REQUIRED>
+                    <!ATTLIST steel-stringed model CDATA #REQUIRED>
+                    <!ELEMENT body_type EMPTY>
+                        <!ATTLIST body_type body (Double-oh | Triple-oh | Dreadnought | Jumbo) #REQUIRED >
+                        
+    <!ELEMENT amplifiers (amplifier+)>
+        <!ELEMENT amplifier (price, description, power)>
+            <!ATTLIST amplifier manufacturer CDATA #REQUIRED>
+            <!ATTLIST amplifier model CDATA #REQUIRED>
+            <!ATTLIST amplifier type (vacuum_tube | solid-state | hybrid) #REQUIRED>
+            <!ELEMENT power EMPTY>
+                <!ATTLIST power value NMTOKEN #REQUIRED>
+                <!ATTLIST power unit (Watt | kW | MW) #REQUIRED>
+                
+    <!ELEMENT strings (acoustic_guitar_strings*, electric_guitar_strings*, classical_guitar_strings*)>
+        <!ELEMENT acoustic_guitar_strings (price, description)>
+            <!ATTLIST acoustic_guitar_strings manufacturer CDATA #REQUIRED>
+            <!ATTLIST acoustic_guitar_strings gauge NMTOKEN #REQUIRED>
+        <!ELEMENT electric_guitar_strings (price, description)>   
+            <!ATTLIST electric_guitar_strings manufacturer CDATA #REQUIRED>
+            <!ATTLIST electric_guitar_strings gauge NMTOKEN #REQUIRED>                
+        <!ELEMENT classical_guitar_strings (price, description)>   
+            <!ATTLIST classical_guitar_strings manufacturer CDATA #REQUIRED>
+            <!ATTLIST classical_guitar_strings gauge NMTOKEN #REQUIRED>

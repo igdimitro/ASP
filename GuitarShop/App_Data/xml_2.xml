@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guitar_shop SYSTEM "file:/C:\Users\lenovo\Documents\Visual Studio 2012\Projects\GuitarShop\GuitarShop\App_Data\kitari.dtd">
+<guitar_shop GuitarShopID="GS2" name="Музикален център Икономов">
+    <contacts>
+        <adress>София, ул. Лавеле 8</adress>
+        <phone>0879594460</phone>
+        <email>gc@mci-bg.com</email>
+        <website>mci-bg.com</website>
+    </contacts>    
+    <guitars>
+        <guitar>
+            <electric_guitar manufacturer="Gibson" model="Future Tribute VS" num_strings="6" num_frets="24">
+                <description>
+                    Произведено в ЮАР.
+                </description>
+                <price value="1503.83" currency="BGN"/>
+                <body>
+                    <solid_body body_type="SG"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <electric_guitar manufacturer="Ibanez" model="GRG150DXB-BKF" num_strings="6" num_frets="24">
+                <description>
+                   Подобна на GRG150DX, но има тремоло и адаптери от Ibanez.
+                </description>
+                <price value="578.60" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Stratocaster"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="single-coil"/>
+                        </pickup_type>
+                        <position pos="middle"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <acoustic_guitar electro-acoustic="No">
+                <steel-stringed num_strings="6" manufacturer="Fender" model="F-1030SCE">
+                    <price value="1124.22" currency="BGN"/>
+                    <body_type body="Dreadnought"/>
+                    <description>Няма</description>
+                </steel-stringed>
+            </acoustic_guitar>
+        </guitar>
+    </guitars>
+    <amplifiers>
+        <amplifier manufacturer="Marshall" model="DSL40C" type="vacuum_tube">
+            <price value="699.99" currency="USD"/>
+            <description>
+                Лампов усилвател
+            </description>
+            <power value="40" unit="Watt"/>
+        </amplifier>
+    </amplifiers>
+    <strings>
+        <acoustic_guitar_strings manufacturer="Fender" gauge="0.11">
+            <price value="15" currency="BGN"/>
+            <description>
+                обикновени струни...
+            </description>
+        </acoustic_guitar_strings>
+        <electric_guitar_strings manufacturer="Dunlop" gauge="0.10">
+            <price value="11.39" currency="BGN"/>
+            <description>
+                струни
+            </description>
+        </electric_guitar_strings>
+    </strings>
+</guitar_shop>

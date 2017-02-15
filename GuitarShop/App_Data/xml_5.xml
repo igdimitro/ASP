@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guitar_shop SYSTEM "file:/C:\Users\lenovo\Documents\Visual Studio 2012\Projects\GuitarShop\GuitarShop\App_Data\kitari.dtd">
+<guitar_shop GuitarShopID="GS5" name="китара.бг">
+    <contacts>
+        <adress>София, Младост 1А, ул. д-р София Аврамова 3</adress>
+        <phone>0876919296</phone>
+        <email>magazin@kitara.bg</email>
+        <website>kitara.bg</website>
+    </contacts>
+    <guitars>
+        <guitar>
+            <electric_guitar manufacturer="Ibanez" model="GRG121DX BKF" num_strings="6" num_frets="24">
+                <description>Черен матов цвят</description>
+                <price value="419" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Stratocaster"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+        <guitar>
+            <electric_guitar manufacturer="Ibanez" model="XP300FX-BK" num_strings="6" num_frets="24">
+                <description>Махагоново тяло, кленов гриф.</description>
+                <price value="603" currency="BGN"/>
+                <body>
+                    <solid_body body_type="Explorer"/>
+                </body>
+                <pickups>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="neck"/>
+                    </pickup>
+                    <pickup>
+                        <pickup_type>
+                            <magnetic type="humbucker"/>
+                        </pickup_type>
+                        <position pos="bridge"/>
+                    </pickup>
+                </pickups>
+            </electric_guitar>
+        </guitar>
+    </guitars>
+    <amplifiers>
+        <amplifier manufacturer="Ibanez" model="TSA15-U" type="vacuum_tube">
+            <price value="773" currency="BGN"/>
+            <description>Няма</description>
+            <power value="15" unit="Watt"/>
+        </amplifier>
+    </amplifiers>
+    <strings>
+        <acoustic_guitar_strings manufacturer="KING LION" gauge="0.11">
+            <price value="7.99" currency="BGN"/>
+            <description>Метални струни за акустична китара. Размери на струните 011-013-021-033-039-048 Струните са от фосфор и бронз. Струните са изработени по специална технология. Характеризират се с приятен тембър, добро звучене, издръжливост. Струните KING LION са харесвани от много музиканти.</description>
+        </acoustic_guitar_strings>
+        <electric_guitar_strings manufacturer="KING LION" gauge="0.9">
+            <price value="7.99" currency="BGN"/>
+            <description>Струни за електрическа китара KING LION 009-042. Никелови. Изработени по специална технология. Характеризират се с приятен тембър, добро звучене, издръжливост. Струните KING LION са харесвани от много музиканти.</description>
+        </electric_guitar_strings>
+        <classical_guitar_strings manufacturer="KING LION" gauge="0.27">
+            <price value="7.99" currency="BGN"/>
+            <description>Найлонови струни за класическа китара. Размерът на струните е .027 .034 .041 .031 .036 .044 Струните са изработени по специална технология. Характеризират се с приятен тембър, добро звучене, издръжливост. Струните KING LION са харесвани от много музиканти.</description>
+        </classical_guitar_strings>
+        
+    </strings>
+</guitar_shop>
